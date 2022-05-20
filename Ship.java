@@ -7,13 +7,13 @@ public class Ship {
         
         switch(len){
             case 2:
-                shipType = 'd';
+                shipType = 'd'; //destroyers
             case 3:
-                shipType = 'c';
+                shipType = 'c'; //cruisers
             case 4:
-                shipType = 'b';
+                shipType = 'b'; //battleships
             case 5:
-                shipType = 'a';
+                shipType = 'a'; //aircraft carrier
 
         }
         for(int i = 0; i < shipArr.length; i++){
