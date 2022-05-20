@@ -5,7 +5,7 @@ public class Board{
     private DrawingPanel shipFrame;
     private Graphics gShot;
     private Graphics gShip;
-    private final int offset = 350;
+    private final int offset = 320;
 
     public Board(){
         shotFrame = new DrawingPanel(600,600, -offset);
