@@ -287,6 +287,10 @@ import javax.swing.filechooser.FileFilter;
  * @version 4.04, 2016/08/17 (BJP 4th edition)
  */
 public final class DrawingPanel implements ImageObserver {
+    //Offset
+    private int offset;
+
+
     // class constants
     private static final Color GRID_LINE_COLOR      = new Color(64, 64, 64, 128);   // color of grid lines on panel
     private static final Object LOCK                = new Object();                 // object used for concurrency locking
@@ -747,7 +751,7 @@ public final class DrawingPanel implements ImageObserver {
      * Uses DEFAULT_WIDTH and DEFAULT_HEIGHT for the panel's size.
      */
     public DrawingPanel() {
-        this(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+        this(DEFAULT_WIDTH, DEFAULT_HEIGHT, 0);
     }
 
     /**
@@ -755,7 +759,9 @@ public final class DrawingPanel implements ImageObserver {
      * @param width panel's width in pixels
      * @param height panel's height in pixels
      */
-    public DrawingPanel(int width, int height) {
+    public DrawingPanel(int width, int height, int xOffset) {
+        offset = xOffset;
+
         ensureInRange("width", width, 0, MAX_SIZE);
         ensureInRange("height", height, 0, MAX_SIZE);
         
@@ -995,7 +1001,7 @@ public final class DrawingPanel implements ImageObserver {
         Dimension screen = tk.getScreenSize();
         int x = Math.max(0, (screen.width - frame.getWidth()) / 2);
         int y = Math.max(0, (screen.height - frame.getHeight()) / 2);
-        frame.setLocation(x, y);
+        frame.setLocation(x + offset, y);
     }
     
     /*
