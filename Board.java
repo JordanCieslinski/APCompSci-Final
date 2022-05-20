@@ -11,9 +11,14 @@ public class Board{
         shotFrame = new DrawingPanel(600,600, -offset);
         shipFrame = new DrawingPanel(600,600, offset);
         gShot = shotFrame.getGraphics();
-        gShip = shotFrame.getGraphics();
+        gShip = shipFrame.getGraphics();
 
         gShot.drawImage(shotFrame.loadImage(".\\board.jpg"), 0, 0, shotFrame);
+        gShip.drawImage(shipFrame.loadImage(".\\board.jpg"), 0, 0, shipFrame);
 
+    }
+
+    public void placeShips(){
+        
     }
 }
