@@ -15,7 +15,7 @@ public class StartScreen extends MouseAdapter implements KeyListener {
         startScreen.addMouseListener(this);
         g = startScreen.getGraphics();
 
-        Image f = startScreen.loadImage(new File(".\\StartScreen.jpg"));
+        Image f = startScreen.loadImage(new File(".\\pics\\StartScreen.jpg"));
         g.drawImage(f, 0, 0, startScreen);
 
     }
@@ -30,8 +30,8 @@ public class StartScreen extends MouseAdapter implements KeyListener {
         int y = e.getY();
 
         if (x >= 0 && y >= 0) {
-            startScreen.clear();
-            new GameMode();
+            startScreen.getFrame().dispose();
+            new gamechoose();
         }
     }
 

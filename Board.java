@@ -13,8 +13,8 @@ public class Board{
         gShot = shotFrame.getGraphics();
         gShip = shipFrame.getGraphics();
 
-        gShot.drawImage(shotFrame.loadImage(".\\board.jpg"), 0, 0, shotFrame);
-        gShip.drawImage(shipFrame.loadImage(".\\board.jpg"), 0, 0, shipFrame);
+        gShot.drawImage(shotFrame.loadImage(".\\pics\\board.jpg"), 0, 0, shotFrame);
+        gShip.drawImage(shipFrame.loadImage(".\\pics\\board.jpg"), 0, 0, shipFrame);
 
     }
 
