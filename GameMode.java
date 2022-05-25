@@ -3,19 +3,19 @@ import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class StartScreen extends MouseAdapter implements KeyListener {
+public class GameMode extends MouseAdapter implements KeyListener {
     private DrawingPanel startScreen;
     private Graphics g;
     private int down;
     private Image f;
 
-    public StartScreen() {
+    public GameMode() {
         startScreen = new DrawingPanel(720, 540, 0);
         startScreen.addKeyListener(this);
         startScreen.addMouseListener(this);
         g = startScreen.getGraphics();
 
-        Image f = startScreen.loadImage(new File(".\\StartScreen.jpg"));
+        Image f = startScreen.loadImage(new File(".\\gamescreen.jpg"));
         g.drawImage(f, 0, 0, startScreen);
 
     }
@@ -44,3 +44,4 @@ public class StartScreen extends MouseAdapter implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 }
+
