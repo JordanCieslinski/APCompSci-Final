@@ -20,11 +20,6 @@ public class StartScreen extends MouseAdapter implements KeyListener {
 
     }
 
-    public void arrow() {
-        g.setFont(new Font("Arial", Font.BOLD, 30));
-        g.drawString(">", 155, 357 + down);
-    }
-
     public void mouseClicked(MouseEvent e) {
         int x = e.getX();
         int y = e.getY();
