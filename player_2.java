@@ -20,5 +20,10 @@ public class player_2 {
         gShot.drawImage(shotFrame.loadImage(".\\pics\\shots.jpg"), 0, 0, shotFrame);
         gShip.drawImage(shipFrame.loadImage(".\\pics\\fleet.jpg"), 0, 0, shipFrame);
 
+
+    }
+
+    public void placeShips(){
+        
     }
 }

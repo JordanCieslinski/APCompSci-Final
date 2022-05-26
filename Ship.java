@@ -21,8 +21,4 @@ public class Ship {
         }
    }
 
-
-    public void shipHit(){
-        
-   }
 }
