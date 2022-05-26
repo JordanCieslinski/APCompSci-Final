@@ -1,25 +1,46 @@
 import java.io.File;
-import java.net.URL;
+import java.util.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class StartScreen {
+public class StartScreen extends MouseAdapter implements KeyListener {
     private DrawingPanel startScreen;
     private Graphics g;
+    private int down;
+    private Image f;
 
-
-    public StartScreen() throws Exception{
-        startScreen = new DrawingPanel(720,540, 0);
-        Image f = startScreen.loadImage(new File(".\\StartScreen.jpg"));
+    public StartScreen() {
+        startScreen = new DrawingPanel(720, 540, 0);
+        startScreen.addKeyListener(this);
+        startScreen.addMouseListener(this);
         g = startScreen.getGraphics();
-        g.drawImage(f, 0, 0, startScreen);
-        g.setFont(new Font("Koulen", Font.BOLD, 45));
-        g.drawString("Choose a game mode!", 100, 290);
-        String fonts[] = 
-      GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
-        for (int i = 0; i < fonts.length; i++) {
-            System.out.println(fonts[i]);
-        }
 
-        
+        Image f = startScreen.loadImage(new File(".\\pics\\StartScreen.jpg"));
+        g.drawImage(f, 0, 0, startScreen);
+
+    }
+
+    public void arrow() {
+        g.setFont(new Font("Arial", Font.BOLD, 30));
+        g.drawString(">", 155, 357 + down);
+    }
+
+    public void mouseClicked(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+
+        if (x >= 0 && y >= 0) {
+            startScreen.getFrame().dispose();
+            new gamechoose();
+        }
+    }
+
+    public void keyPressed(KeyEvent e) {
+    }
+
+    public void keyReleased(KeyEvent e) {
+    }
+
+    public void keyTyped(KeyEvent e) {
     }
 }
