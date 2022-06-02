@@ -1,24 +1,30 @@
+import java.io.File;
+
 public class Ship {
-    private char[] shipArr;
-    private char shipType;
+    public int length;
+    public char type;
+    public File shipLoc;
 
-    public Ship(int len, char c){
-        shipArr = new char[len];
-        
-        switch(len){
-            case 2:
-                shipType = 'd';
-            case 3:
-                shipType = 'c';
-            case 4:
-                shipType = 'b';
-            case 5:
-                shipType = 'a';
-
+    public Ship(int len, char c) {
+        length = len;
+        type = c;
+        switch (type) {
+            case 'a':
+                shipLoc = new File(".\\pics\\airCraft.jpg");
+                break;
+            case 'b':
+                shipLoc = new File(".\\pics\\battleship.jpg");
+                break;
+            case 'd':
+                shipLoc = new File(".\\pics\\destroyer.jpg");
+                break;
+            case 's':
+                shipLoc = new File(".\\pics\\sub.jpg");
+                break;
+            case 'p':
+                shipLoc = new File(".\\pics\\patrol.jpg");
+                break;
         }
-        for(int i = 0; i < shipArr.length; i++){
-            shipArr[i] = shipType;
-        }
-   }
+    }
 
 }
