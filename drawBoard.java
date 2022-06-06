@@ -1,13 +1,13 @@
 import java.awt.*;
 
-public class Board{
+public class drawBoard{
     private DrawingPanel shotFrame;
     private DrawingPanel shipFrame;
     private Graphics gShot;
     private Graphics gShip;
     private final int offset = 320;
 
-    public Board(){
+    public drawBoard(){
         shotFrame = new DrawingPanel(600,600, -offset);
         shipFrame = new DrawingPanel(600,600, offset);
         gShot = shotFrame.getGraphics();
