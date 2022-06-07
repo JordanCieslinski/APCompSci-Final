@@ -41,13 +41,14 @@ public class player_2 extends MouseAdapter {
         DrawingPanel ship = new DrawingPanel(600, 400, -offset);
         ship.addMouseListener(this);
         Graphics shipDraw = ship.getGraphics();
-        for (counter = 0; counter < arr.length; counter++) {
+        for (counter = 0; counter < arr.length;) {
             shipDraw.drawImage(ship.loadImage(arr[counter].shipLoc), 0, 0, ship);
         }
 
     }
-    public void findPos(int x, int y){
-        return {}
+    public int[] findPos(int x, int y){
+        int [] arr = {((y-105) / 50), ((x-50) / 50)};
+        return arr;
     }
 
     public void mouseClicked(MouseEvent e) {
@@ -56,8 +57,7 @@ public class player_2 extends MouseAdapter {
         // 50 105
         // 550 605
         if (x > 50 && x < 550 && y > 105 && y < 605 && ((x % 50 != 0) && ((y - 105) % 50 != 0))){
-            coordClicked[0] = x;
-            coordClicked[1] = y;
+            coordClicked = findPos(x, y);
         }
             
 
@@ -66,6 +66,13 @@ public class player_2 extends MouseAdapter {
     public void mouseReleased(MouseEvent e) {
         int x = e.getX();
         int y = e.getY();
+
+        int[] coordReleased = findPos(x, y);
+
+        if(){
+            //needs to be added to arr and placed on board
+            counter++;
+        }
 
         
 
