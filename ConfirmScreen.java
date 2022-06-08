@@ -1,5 +1,4 @@
 import java.io.File;
-import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -30,16 +29,16 @@ public class ConfirmScreen extends MouseAdapter implements KeyListener {
     public void mouseClicked(MouseEvent e) {
         int x = e.getX();
         int y = e.getY();
-        if ( x >= 600 && y >= 500) { // continue
+        if (x >= 600 && y >= 500) { // continue
             frame.getFrame().dispose();
-            if(gMode ==0){
+            if (gMode == 0) {
                 System.exit(y);
-            }
-            else if(gMode == 1){
+            } else if (gMode == 1) {
                 new player_1();
-            }
-            else if(gMode == 2){
+            } else if (gMode == 2) {
+
                 new player_2();
+
             }
 
         } else if (x <= 80 && y >= 500) { // back

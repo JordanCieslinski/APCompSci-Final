@@ -1,13 +1,10 @@
 import java.io.File;
-import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class StartScreen extends MouseAdapter implements KeyListener {
     private DrawingPanel startScreen;
     private Graphics g;
-    private int down;
-    private Image f;
 
     public StartScreen() {
         startScreen = new DrawingPanel(720, 540, 0);

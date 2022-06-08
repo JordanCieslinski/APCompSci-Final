@@ -1,8 +1,6 @@
-import java.io.File;
-
 public class Main {
-    public static void main(String[] args)throws Exception {
-        new StartScreen();
+    public static void main(String[] args) {
+        new player_2();
     }
 
 }
