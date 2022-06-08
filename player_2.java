@@ -20,6 +20,8 @@ public class player_2 extends MouseAdapter {
 
     private Ship[] shipArr = new Ship[5];
 
+    public static boolean alreadyAShip = false;
+
     public player_2() {
         shotFrame = new DrawingPanel(600, 650, -offset);
         shipFrame = new DrawingPanel(600, 650, offset);
@@ -80,13 +82,14 @@ public class player_2 extends MouseAdapter {
 
         coordReleased = findPos(x, y);
 
-        // side to side
+        // up and down
         if (coordReleased[0] == (coordClicked[0] + length) || coordReleased[0] == (coordClicked[0] - length)) {
-            boards.placeShip(player, shipArr[counter], coordClicked[0], coordClicked[1], coordReleased[0], coordReleased[1]);
+            boards.placeShip(player, shipArr[counter], coordClicked[0], coordClicked[1], coordReleased[0], coordReleased[1], "vertical");
             counter++;
         } else if (coordReleased[1] == (coordClicked[1] + length) || coordReleased[1] == (coordClicked[1] - length)) {
-            boards.placeShip(player, shipArr[counter], coordClicked[0], coordClicked[1], coordReleased[0], coordReleased[1]);
+            boards.placeShip(player, shipArr[counter], coordClicked[0], coordClicked[1], coordReleased[0], coordReleased[1], "horizontal");
             counter++;
+            
 
         } else {
         }

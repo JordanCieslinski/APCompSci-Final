@@ -27,4 +27,8 @@ public class Ship {
         }
     }
 
+    public String toString(){
+        return type+"";
+    }
+
 }
