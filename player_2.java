@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 
-public class player_2 extends MouseAdapter implements Runnable {
+public class player_2 extends MouseAdapter {
 
     public DrawingPanel shotFrame;
     public static DrawingPanel shipFrame;
@@ -11,8 +11,6 @@ public class player_2 extends MouseAdapter implements Runnable {
 
     public static int counter;
     public static boolean updateShip = false;
-    public boolean goGoJorJor = false;
-
     private int[] coordClicked = new int[2];
     private int[] coordReleased = new int[2];
 
@@ -24,7 +22,7 @@ public class player_2 extends MouseAdapter implements Runnable {
 
     public static boolean alreadyAShip = false;
 
-    public void drawShit() {
+    public void start() {
         shotFrame = new DrawingPanel(600, 650, -offset);
         shipFrame = new DrawingPanel(600, 650, offset);
         gShot = shotFrame.getGraphics();
@@ -39,30 +37,22 @@ public class player_2 extends MouseAdapter implements Runnable {
         shipArr[2] = new Ship(3, 'd');
         shipArr[3] = new Ship(3, 's');
         shipArr[4] = new Ship(2, 'p');
-    }
 
-    public static boolean isAlreadyAShip() {
-        return alreadyAShip;
-    }
-
-    @Override
-    public void run() {
-        while (!goGoJorJor) {
-            double a = Math.random();
-        }
         placeShips(1);
-    }
-
-    public player_2() {
-        Thread t1 = new Thread(this);
-        t1.start();
-
         for (int i = 0; i < boards.player1_Ships.length; i++) {
             for (int j = 0; j < boards.player1_Ships[i].length; j++) {
                 System.out.print(boards.player1_Ships[i][j] + "      ");
             }
             System.out.println();
         }
+    }
+
+    public static boolean isAlreadyAShip() {
+        return alreadyAShip;
+    }
+
+
+    public player_2() {
         // placeShips(2);
     }
 
