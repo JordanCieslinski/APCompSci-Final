@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 
-public class player_2 extends MouseAdapter implements Runnable{
+public class player_2 extends MouseAdapter implements Runnable {
 
     public DrawingPanel shotFrame;
     public static DrawingPanel shipFrame;
@@ -24,7 +24,7 @@ public class player_2 extends MouseAdapter implements Runnable{
 
     public static boolean alreadyAShip = false;
 
-    public void drawShit(){
+    public void drawShit() {
         shotFrame = new DrawingPanel(600, 650, -offset);
         shipFrame = new DrawingPanel(600, 650, offset);
         gShot = shotFrame.getGraphics();
@@ -44,12 +44,15 @@ public class player_2 extends MouseAdapter implements Runnable{
     public static boolean isAlreadyAShip() {
         return alreadyAShip;
     }
+
     @Override
-    public void run(){
-        while(!goGoJorJor){
-            double a=Math.random();
+    public void run() {
+        while (!goGoJorJor) {
+            double a = Math.random();
         }
-            placeShips(1);    }
+        placeShips(1);
+    }
+
     public player_2() {
         Thread t1 = new Thread(this);
         t1.start();
@@ -62,18 +65,20 @@ public class player_2 extends MouseAdapter implements Runnable{
         }
         // placeShips(2);
     }
-    public void wait_until_correct(Graphics shipDraw, DrawingPanel ship){
-        while (true){
+
+    public void wait_until_correct(Graphics shipDraw, DrawingPanel ship) {
+        while (true) {
             length = shipArr[counter - 1].leng - 1;
             shipDraw.drawImage(ship.loadImage(shipArr[counter - 1].placeLoc), 0, 0, ship);
 
             //wait until correct placement
-            if(boards.isvalidLocation){
+            if (boards.isvalidLocation) {
                 boards.isvalidLocation = false;
                 break;
             }
         }
     }
+
     public void placeShips(int p) {
         player = p;
 
