@@ -55,8 +55,8 @@ public class player_2 extends MouseAdapter {
             shipDraw.drawImage(ship.loadImage(shipArr[counter - 1].placeLoc), 0, 0, ship);
 
             //wait until correct placement
-            if(boards.isvalidLocation2){
-                boards.isvalidLocation2 = false;
+            if(boards.isvalidLocation){
+                boards.isvalidLocation = false;
                 break;
             }
         }
