@@ -49,24 +49,28 @@ public class player_2 extends MouseAdapter {
         }
         // placeShips(2);
     }
+    public void wait_until_correct(Graphics shipDraw, DrawingPanel ship){
+        while (true){
+            length = shipArr[counter - 1].leng - 1;
+            shipDraw.drawImage(ship.loadImage(shipArr[counter - 1].placeLoc), 0, 0, ship);
 
+            //wait until correct placement
+            if(boards.isvalidLocation2){
+                boards.isvalidLocation2 = false;
+                break;
+            }
+        }
+    }
     public void placeShips(int p) {
         player = p;
 
         DrawingPanel ship = new DrawingPanel(600, 400, -offset);
         Graphics shipDraw = ship.getGraphics();
 
-        for (counter = 0; counter <= shipArr.length;) {
-
-            length = shipArr[counter - 1].leng - 1;
-            shipDraw.drawImage(ship.loadImage(shipArr[counter - 1].placeLoc), 0, 0, ship);
-
+        for (counter = 0; counter <= shipArr.length; counter++) {
+            wait_until_correct(shipDraw, ship);
         }
         ship.getFrame().dispose();
-    }
-
-    public void waitUntil(){
-        
     }
 
     public int[] findPos(int x, int y) {

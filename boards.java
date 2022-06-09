@@ -2,6 +2,10 @@ public class boards {
     public static Ship[][] player1_Ships = new Ship[10][10];
     public static Ship[][] player2_Ships = new Ship[10][10];
 
+    //wits until the locaion is valid
+    public static boolean isvalidLocation1 = false;
+    public static boolean isvalidLocation2 = false;
+
     public static void placeShip(int player, Ship type, int rowClicked, int colClicked, int rowReleased,
             int colReleased, String orientation) {
         System.out.println(rowClicked+" "+colClicked);
@@ -31,9 +35,11 @@ public class boards {
                 for (int i = min; i <= max; i++) {
                     if (player == 1) {
                         player1_Ships[rowClicked][i] = type;
-                        
+                        isvalidLocation1 = true;
+
                     } else if (player == 2) {
                         player2_Ships[rowClicked][i] = type;
+                        isvalidLocation2 = true;
                         
                     }
                 }
