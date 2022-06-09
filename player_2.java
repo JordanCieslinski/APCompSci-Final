@@ -67,7 +67,7 @@ public class player_2 extends MouseAdapter {
         DrawingPanel ship = new DrawingPanel(600, 400, -offset);
         Graphics shipDraw = ship.getGraphics();
 
-        for (counter = 0; counter <= shipArr.length; counter++) {
+        for (counter = 1; counter <= shipArr.length; counter++) {
             wait_until_correct(shipDraw, ship);
         }
         ship.getFrame().dispose();

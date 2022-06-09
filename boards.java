@@ -6,21 +6,21 @@ public class boards {
     public static boolean isvalidLocation = false;
 
     public static void placeShip(int player, Ship type, int rowClicked, int colClicked, int rowReleased,
-            int colReleased, String orientation) {
-        System.out.println(rowClicked+" "+colClicked);
-        System.out.println(rowReleased+" "+colReleased);
+                                 int colReleased, String orientation) {
+        System.out.println(rowClicked + " " + colClicked);
+        System.out.println(rowReleased + " " + colReleased);
         // 0, 0
         // 4, 0
         // HORIZONTAL
         int min;
         int max;
         boolean invalidLoc = false;
-        
+
 
         if (orientation.equals("horizontal")) {
             min = Math.min(colClicked, colReleased);
             max = Math.max(colClicked, colReleased);
-            System.out.println("minmax: "+min+" "+ max);
+            System.out.println("minmax: " + min + " " + max);
             for (int i = min; i <= max; i++) {
                 if (player == 1 && player1_Ships[rowClicked][i] != null) {
                     invalidLoc = true;
@@ -39,10 +39,12 @@ public class boards {
                     } else if (player == 2) {
                         player2_Ships[rowClicked][i] = type;
                         isvalidLocation = true;
-                        
+
                     }
                 }
-                player_2.gShip.drawImage(player_2.shipFrame.loadImage(shipTransparents.shipsOnBoard(type.type, orientation)), 0, 0, player_2.shipFrame);
+                player_2.gShip.drawImage(
+                        player_2.shipFrame.loadImage(shipTransparents.shipsOnBoard(type.type, orientation)), 0, 0,
+                        player_2.shipFrame);
             }
         } else if (orientation.equals("vertical")) {
             min = Math.min(rowClicked, rowReleased);
@@ -60,10 +62,10 @@ public class boards {
                 for (int i = min; i <= max; i++) {
                     if (player == 1) {
                         player1_Ships[rowClicked][i] = type;
-                        
+
                     } else if (player == 2) {
                         player2_Ships[rowClicked][i] = type;
-                        
+
                     }
 
                 }
