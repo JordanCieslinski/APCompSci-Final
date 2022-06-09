@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        new player_2();
+        new StartScreen();
         
         
     }
