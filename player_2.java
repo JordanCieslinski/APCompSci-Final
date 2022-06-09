@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 
-public class player_2 extends MouseAdapter {
+public class player_2 extends MouseAdapter implements Runnable{
 
     public DrawingPanel shotFrame;
     public static DrawingPanel shipFrame;
@@ -11,6 +11,7 @@ public class player_2 extends MouseAdapter {
 
     public static int counter;
     public static boolean updateShip = false;
+    public boolean goGoJorJor = false;
 
     private int[] coordClicked = new int[2];
     private int[] coordReleased = new int[2];
@@ -23,7 +24,7 @@ public class player_2 extends MouseAdapter {
 
     public static boolean alreadyAShip = false;
 
-    public player_2() {
+    public void drawShit(){
         shotFrame = new DrawingPanel(600, 650, -offset);
         shipFrame = new DrawingPanel(600, 650, offset);
         gShot = shotFrame.getGraphics();
@@ -38,8 +39,20 @@ public class player_2 extends MouseAdapter {
         shipArr[2] = new Ship(3, 'd');
         shipArr[3] = new Ship(3, 's');
         shipArr[4] = new Ship(2, 'p');
+    }
 
-        placeShips(1);
+    public static boolean isAlreadyAShip() {
+        return alreadyAShip;
+    }
+    @Override
+    public void run(){
+        while(!goGoJorJor){
+            double a=Math.random();
+        }
+            placeShips(1);    }
+    public player_2() {
+        Thread t1 = new Thread(this);
+        t1.start();
 
         for (int i = 0; i < boards.player1_Ships.length; i++) {
             for (int j = 0; j < boards.player1_Ships[i].length; j++) {
@@ -55,8 +68,8 @@ public class player_2 extends MouseAdapter {
             shipDraw.drawImage(ship.loadImage(shipArr[counter - 1].placeLoc), 0, 0, ship);
 
             //wait until correct placement
-            if(boards.isvalidLocation2){
-                boards.isvalidLocation2 = false;
+            if(boards.isvalidLocation){
+                boards.isvalidLocation = false;
                 break;
             }
         }
@@ -67,7 +80,7 @@ public class player_2 extends MouseAdapter {
         DrawingPanel ship = new DrawingPanel(600, 400, -offset);
         Graphics shipDraw = ship.getGraphics();
 
-        for (counter = 0; counter <= shipArr.length; counter++) {
+        for (counter = 1; counter <= shipArr.length; counter++) {
             wait_until_correct(shipDraw, ship);
         }
         ship.getFrame().dispose();
