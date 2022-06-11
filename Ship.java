@@ -3,26 +3,30 @@ import java.io.File;
 public class Ship {
     public int leng;
     public char type;
-    public File placeLoc;
+    public String placeLoc;
 
-    public Ship(int len, char c) {
-        leng = len;
+    public Ship(char c) {
         type = c;
         switch (type) {
             case 'a':
-                placeLoc = new File(".\\pics\\airCraft.jpg");
+                placeLoc = (".\\pics\\airCraft.jpg");
+                leng = 5;
                 break;
             case 'b':
-                placeLoc = new File(".\\pics\\battleship.jpg");
+                placeLoc = (".\\pics\\battleship.jpg");
+                leng = 4;
                 break;
             case 'd':
-                placeLoc = new File(".\\pics\\destroyer.jpg");
+                placeLoc = (".\\pics\\destroyer.jpg");
+                leng = 3;
                 break;
             case 's':
-                placeLoc = new File(".\\pics\\sub.jpg");
+                placeLoc = (".\\pics\\sub.jpg");
+                leng = 3;
                 break;
             case 'p':
-                placeLoc = new File(".\\pics\\patrol.jpg");
+                placeLoc = (".\\pics\\patrol.jpg");
+                leng = 2;
                 break;
         }
     }

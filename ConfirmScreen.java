@@ -34,11 +34,9 @@ public class ConfirmScreen extends MouseAdapter implements KeyListener {
             if (gMode == 0) {
                 System.exit(y);
             } else if (gMode == 1) {
-                new player_1();
+                //TODO REMOVE 1 player game
             } else if (gMode == 2) {
-
-                Game a = new Game();
-                a.placeShips(1);
+                new p1();
 
             }
 
