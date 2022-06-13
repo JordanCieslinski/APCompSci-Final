@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class p1Game extends MouseAdapter {
     private static Ship[][] board = p1.board;
@@ -18,6 +19,9 @@ public class p1Game extends MouseAdapter {
 
     private boolean shotIsTaken = false;
 
+    public static ArrayList<Point> hitList = new ArrayList<>();
+    public static ArrayList<Point> missList = new ArrayList<>();  
+
     public p1Game() {
 
         fleet = new DrawingPanel(600, 650, 320);
@@ -35,16 +39,22 @@ public class p1Game extends MouseAdapter {
 
     }
 
+
     public void replaceShips() {
         for (int i = 0; i < p1.shipPos.size(); i++) {
-            shipDraw.drawImage(fleet.loadImage(shipTransparents.shipsOnBoard(arr[i].type, p1.orientationList.get(i))),
-                    (int) p1.shipPos.get(i).getX(), (int) p1.shipPos.get(i).getY(), fleet);
+            shipDraw.drawImage(fleet.loadImage(shipTransparents.shipsOnBoard(arr[i].type, p1.orientationList.get(i))),(int) p1.shipPos.get(i).getX(), (int) p1.shipPos.get(i).getY(), fleet);
+        }
+        for (int i = 0; i < p2Game.hitList.size(); i++) {
+            shipDraw.drawImage(fleet.loadImage(".\\pics\\hit.png"), (int)p2Game.hitList.get(i).getX(), (int)p2Game.hitList.get(i).getY(),fleet );
         }
     }
 
     public void replaceShots() {
-        for (int i = 0; i < p1.shipPos.size(); i++) {
-            // TODO REDRAW ALL SHOTS
+        for (int i = 0; i < hitList.size(); i++) {
+            shotDraw.drawImage(shots.loadImage(".\\pics\\hit.png"), (int)hitList.get(i).getX(), (int)hitList.get(i).getY(), shots);
+        }
+        for (int i= 0; i < missList.size(); i++) {
+            shotDraw.drawImage(shots.loadImage(".\\pics\\miss.png"), (int)missList.get(i).getX(), (int)missList.get(i).getY(), shots);
         }
     }
 
@@ -53,19 +63,28 @@ public class p1Game extends MouseAdapter {
         int y = e.getY();
 
         shotPos = findPos(x, y);
+        if (!shotIsTaken) {
+            if (isValidLocation()) {
+                if (p2.board[shotPos[0]][shotPos[1]] != null) {
+                    shot[shotPos[0]][shotPos[1]] = new Ship('x');
+                    shotDraw.drawImage(shots.loadImage(".\\pics\\hit.png"), (int) positionToDraw().getX(),(int) positionToDraw().getY(), shots);
+                    shotIsTaken = true;
+                    shotDraw.drawImage(shots.loadImage(".\\pics\\p2turn.jpg"), 390, 15, shots);
+                    hitList.add(positionToDraw());
 
-        System.out.println(shotPos[0]+ " "+shotPos[1]);
-        if (isValidLocation()) {
-            if (p2.board[shotPos[0]][shotPos[1]] != null) {
-                shot[shotPos[0]][shotPos[1]] = new Ship('x');
-                shotDraw.drawImage(shots.loadImage(".\\pics\\hit.png"), (int) positionToDraw().getX(), (int) positionToDraw().getY(), shots);
-                shotIsTaken = true;
-            } else {
-                shot[shotPos[0]][shotPos[1]] = new Ship('m');
-                shotDraw.drawImage(shots.loadImage(".\\pics\\miss.png"), (int) positionToDraw().getX(), (int) positionToDraw().getY(), shots);
-                shotIsTaken = true;
+                } else {
+                    shot[shotPos[0]][shotPos[1]] = new Ship('m');
+                    shotDraw.drawImage(shots.loadImage(".\\pics\\miss.png"), (int) positionToDraw().getX(),(int) positionToDraw().getY(), shots);
+                    shotIsTaken = true;
+                    shotDraw.drawImage(shots.loadImage(".\\pics\\p2turn.jpg"), 390, 15, shots);
+                    missList.add(positionToDraw());
+                }
             }
 
+        } else if (x > 390 && y > 15 && x < 590 && y < 65) {
+            shots.getFrame().dispose();
+            fleet.getFrame().dispose();
+            new p2Game();
         }
 
     }

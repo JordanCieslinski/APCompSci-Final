@@ -62,7 +62,7 @@ public class p2 extends MouseAdapter {
         }
         // loadShips
         else if (e.getSource().toString().equals("javax.swing.JPanel[,0,0,600x400,layout=java.awt.FlowLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=600,height=400]]")) {
-            if (shipIsPlaced && currentShip == 4) {
+            if (shipIsPlaced && currentShip == 4  && x > 400 && y >350) {
                 frame.getFrame().dispose();
                 loadShips.getFrame().dispose();
                 new p1Game();
@@ -152,7 +152,10 @@ public class p2 extends MouseAdapter {
                 board[i][clicked[1]] = arr[currentShip];
             }
             shipIsPlaced = true;
-            shipDraw.drawImage(loadShips.loadImage(".\\pics\\nextShip.jpg"), 400, 350, loadShips);
+            if(currentShip == 4)
+                shipDraw.drawImage(loadShips.loadImage(".\\pics\\p1turn.jpg"), 400, 350, loadShips);
+            else
+                shipDraw.drawImage(loadShips.loadImage(".\\pics\\nextShip.jpg"), 400, 350, loadShips);
             g.drawImage(frame.loadImage(shipTransparents.shipsOnBoard(arr[currentShip].type, orientation)),
                     (int) positionToDraw().getX(), (int) positionToDraw().getY(), frame);
             shipPos.add(positionToDraw());
