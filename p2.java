@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class p2 extends MouseAdapter {
     public static Ship[][] board;
@@ -17,6 +18,9 @@ public class p2 extends MouseAdapter {
     private int currentShip;
 
     private String orientation = "";
+
+    public static ArrayList<Point> shipPos = new ArrayList<>();
+    public static ArrayList<String> orientationList = new ArrayList<>();
 
     private Ship[] arr = { new Ship('a'), new Ship('b'), new Ship('d'), new Ship('s'), new Ship('p') };
 
@@ -59,7 +63,9 @@ public class p2 extends MouseAdapter {
         // loadShips
         else if (e.getSource().toString().equals("javax.swing.JPanel[,0,0,600x400,layout=java.awt.FlowLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=600,height=400]]")) {
             if (shipIsPlaced && currentShip == 4) {
-                //TODO START GAME, make 2 different classes for each player
+                frame.getFrame().dispose();
+                loadShips.getFrame().dispose();
+                new p1Game();
             }
             else if (shipIsPlaced) {
                 if (x > 400 && y > 350) {
@@ -137,6 +143,8 @@ public class p2 extends MouseAdapter {
                 shipDraw.drawImage(loadShips.loadImage(".\\pics\\nextShip.jpg"), 400, 350, loadShips);
             g.drawImage(frame.loadImage(shipTransparents.shipsOnBoard(arr[currentShip].type, orientation)),
                     (int) positionToDraw().getX(), (int) positionToDraw().getY(), frame);
+            shipPos.add(positionToDraw());
+            orientationList.add(orientation);
         } else if (clicked[1] == released[1]) {
             orientation = "vert";
             for (int i = Math.min(clicked[0], released[0]); i < Math.min(clicked[0], released[0])
@@ -147,6 +155,8 @@ public class p2 extends MouseAdapter {
             shipDraw.drawImage(loadShips.loadImage(".\\pics\\nextShip.jpg"), 400, 350, loadShips);
             g.drawImage(frame.loadImage(shipTransparents.shipsOnBoard(arr[currentShip].type, orientation)),
                     (int) positionToDraw().getX(), (int) positionToDraw().getY(), frame);
+            shipPos.add(positionToDraw());
+            orientationList.add(orientation);
         }
     }
 
