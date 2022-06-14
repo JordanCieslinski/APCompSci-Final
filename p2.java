@@ -36,14 +36,14 @@ public class p2 extends MouseAdapter {
         frame.addMouseListener(this);
         g = frame.getGraphics();
 
-        g.drawImage(frame.loadImage(".\\pics\\sovietboard.jpg"), 0, 0, frame);
+        g.drawImage(frame.loadImage("./pics/sovietBoard.jpg"), 0, 0, frame);
 
         loadShips = new DrawingPanel(600, 400, -320);
         loadShips.addMouseListener(this);
         shipDraw = loadShips.getGraphics();
 
         // AIRCRAFT CARRIER
-        shipDraw.drawImage(loadShips.loadImage(".\\pics\\aircraft.jpg"), 0, 0, loadShips);
+        shipDraw.drawImage(loadShips.loadImage("./pics/airCraft.jpg"), 0, 0, loadShips);
         currentShip = 0;
 
     }
@@ -53,7 +53,8 @@ public class p2 extends MouseAdapter {
         int y = e.getY();
 
         // FRAME
-        if (e.getSource().toString().equals("javax.swing.JPanel[,0,0,600x650,layout=java.awt.FlowLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=600,height=650]]")) {
+        if (e.getSource().toString().endsWith(
+                "width=600,height=650]]")){
             if (!shipIsPlaced) {
                 clicked[0] = findPos(x, y)[0];
                 clicked[1] = findPos(x, y)[1];
@@ -61,7 +62,8 @@ public class p2 extends MouseAdapter {
 
         }
         // loadShips
-        else if (e.getSource().toString().equals("javax.swing.JPanel[,0,0,600x400,layout=java.awt.FlowLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=600,height=400]]")) {
+        else if (e.getSource().toString().endsWith(
+                "width=600,height=400]]")){
             if (shipIsPlaced && currentShip == 4  && x > 400 && y >350) {
                 frame.getFrame().dispose();
                 loadShips.getFrame().dispose();
@@ -82,7 +84,8 @@ public class p2 extends MouseAdapter {
         int y = e.getY();
 
         // FRAME
-        if (e.getSource().toString().equals("javax.swing.JPanel[,0,0,600x650,layout=java.awt.FlowLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=600,height=650]]")) {
+        if (e.getSource().toString().endsWith(
+                "width=600,height=650]]")){
             released[0] = findPos(x, y)[0];
             released[1] = findPos(x, y)[1];
             if (isValidLocation()) {
@@ -138,9 +141,9 @@ public class p2 extends MouseAdapter {
             }
             shipIsPlaced = true;
             if(currentShip == 4)
-                shipDraw.drawImage(loadShips.loadImage(".\\pics\\p1turn.jpg"), 400, 350, loadShips);
+                shipDraw.drawImage(loadShips.loadImage("./pics/p1turn.jpg"), 400, 350, loadShips);
             else
-                shipDraw.drawImage(loadShips.loadImage(".\\pics\\nextShip.jpg"), 400, 350, loadShips);
+                shipDraw.drawImage(loadShips.loadImage("./pics/nextShip.jpg"), 400, 350, loadShips);
             g.drawImage(frame.loadImage(shipTransparents.shipsOnBoard(arr[currentShip].type, orientation)),
                     (int) positionToDraw().getX(), (int) positionToDraw().getY(), frame);
             shipPos.add(positionToDraw());
@@ -153,9 +156,9 @@ public class p2 extends MouseAdapter {
             }
             shipIsPlaced = true;
             if(currentShip == 4)
-                shipDraw.drawImage(loadShips.loadImage(".\\pics\\p1turn.jpg"), 400, 350, loadShips);
+                shipDraw.drawImage(loadShips.loadImage("./pics/p1turn.jpg"), 400, 350, loadShips);
             else
-                shipDraw.drawImage(loadShips.loadImage(".\\pics\\nextShip.jpg"), 400, 350, loadShips);
+                shipDraw.drawImage(loadShips.loadImage("./pics/nextShip.jpg"), 400, 350, loadShips);
             g.drawImage(frame.loadImage(shipTransparents.shipsOnBoard(arr[currentShip].type, orientation)),
                     (int) positionToDraw().getX(), (int) positionToDraw().getY(), frame);
             shipPos.add(positionToDraw());

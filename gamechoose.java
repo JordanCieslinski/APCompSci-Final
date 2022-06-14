@@ -13,7 +13,7 @@ public class gamechoose extends MouseAdapter implements KeyListener {
         frame.addMouseListener(this);
         g = frame.getGraphics();
 
-        Image f = frame.loadImage(new File(".\\pics\\gamescreen.jpg"));
+        Image f = frame.loadImage(new File("./pics/gamescreen.jpg"));
         g.drawImage(f, 0, 0, frame);
 
     }

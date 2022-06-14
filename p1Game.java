@@ -40,8 +40,8 @@ public class p1Game extends MouseAdapter {
         shotDraw = shots.getGraphics();
         shots.addMouseListener(this);
 
-        shipDraw.drawImage(fleet.loadImage(".\\pics\\usboard.jpg"), 0, 0, fleet);
-        shotDraw.drawImage(shots.loadImage(".\\pics\\shots.jpg"), 0, 0, fleet);
+        shipDraw.drawImage(fleet.loadImage("./pics/usBoard.jpg"), 0, 0, fleet);
+        shotDraw.drawImage(shots.loadImage("./pics/shots.jpg"), 0, 0, fleet);
 
         replaceShips();
         replaceShots();
@@ -54,16 +54,16 @@ public class p1Game extends MouseAdapter {
             shipDraw.drawImage(fleet.loadImage(shipTransparents.shipsOnBoard(arr[i].type, p1.orientationList.get(i))),(int) p1.shipPos.get(i).getX(), (int) p1.shipPos.get(i).getY(), fleet);
         }
         for (int i = 0; i < p2Game.hitList.size(); i++) {
-            shipDraw.drawImage(fleet.loadImage(".\\pics\\hit.png"), (int)p2Game.hitList.get(i).getX(), (int)p2Game.hitList.get(i).getY(),fleet );
+            shipDraw.drawImage(fleet.loadImage("./pics/hit.png"), (int)p2Game.hitList.get(i).getX(), (int)p2Game.hitList.get(i).getY(),fleet );
         }
     }
 
     public void replaceShots() {
         for (int i = 0; i < hitList.size(); i++) {
-            shotDraw.drawImage(shots.loadImage(".\\pics\\hit.png"), (int)hitList.get(i).getX(), (int)hitList.get(i).getY(), shots);
+            shotDraw.drawImage(shots.loadImage("./pics/hit.png"), (int)hitList.get(i).getX(), (int)hitList.get(i).getY(), shots);
         }
         for (int i= 0; i < missList.size(); i++) {
-            shotDraw.drawImage(shots.loadImage(".\\pics\\miss.png"), (int)missList.get(i).getX(), (int)missList.get(i).getY(), shots);
+            shotDraw.drawImage(shots.loadImage("./pics/miss.png"), (int)missList.get(i).getX(), (int)missList.get(i).getY(), shots);
         }
     }
 
@@ -78,19 +78,19 @@ public class p1Game extends MouseAdapter {
                     shot[shotPos[0]][shotPos[1]] = new Ship('x');
                     addToCounter(shotPos[0], shotPos[1]);
                     new checkCounters(1);
-                    shotDraw.drawImage(shots.loadImage(".\\pics\\hit.png"), (int) positionToDraw().getX(),(int) positionToDraw().getY(), shots);
+                    shotDraw.drawImage(shots.loadImage("./pics/hit.png"), (int) positionToDraw().getX(),(int) positionToDraw().getY(), shots);
                     new Between("hit");
                     shotIsTaken = true;
-                    shotDraw.drawImage(shots.loadImage(".\\pics\\p2turn.jpg"), 390, 15, shots);
+                    shotDraw.drawImage(shots.loadImage("./pics/p2turn.jpg"), 390, 15, shots);
                     hitList.add(positionToDraw());
                     
 
                 } else {
                     shot[shotPos[0]][shotPos[1]] = new Ship('m');
-                    shotDraw.drawImage(shots.loadImage(".\\pics\\miss.png"), (int) positionToDraw().getX(),(int) positionToDraw().getY(), shots);
+                    shotDraw.drawImage(shots.loadImage("./pics/miss.png"), (int) positionToDraw().getX(),(int) positionToDraw().getY(), shots);
                     new Between("miss");
                     shotIsTaken = true;
-                    shotDraw.drawImage(shots.loadImage(".\\pics\\p2turn.jpg"), 390, 15, shots);
+                    shotDraw.drawImage(shots.loadImage("./pics/p2turn.jpg"), 390, 15, shots);
                     missList.add(positionToDraw());
                 }
             }

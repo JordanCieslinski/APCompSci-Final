@@ -18,9 +18,9 @@ public class ConfirmScreen extends MouseAdapter implements KeyListener {
         }
         gMode = mode;
         if (mode == 0) {
-            f = frame.loadImage(new File(".\\pics\\quit.jpg"));
+            f = frame.loadImage(new File("./pics/quit.jpg"));
         } else if (mode == 1) {
-            f = frame.loadImage(new File(".\\pics\\play.jpg"));
+            f = frame.loadImage(new File("./pics/play.jpg"));
         } else if (mode == 2) {
             new HowToPlay();
         }

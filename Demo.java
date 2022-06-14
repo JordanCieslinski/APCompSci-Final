@@ -33,11 +33,11 @@
 //     {
 //         int key  = e.getKeyCode();
 //         if(key == KeyEvent.VK_LEFT){
-//             Image i = frame.loadImage(".\\Final Project Student Notes\\pmg.jpg");
+//             Image i = frame.loadImage("./Final Project Student Notes/pmg.jpg");
 //             g.drawImage(i, 0, 0, frame);
 //         }
 //         else if(key == KeyEvent.VK_A){
-//             Image i = frame.loadImage(".\\Final Project Student Notes\\pic.jpg");
+//             Image i = frame.loadImage("./Final Project Student Notes/pic.jpg");
 //             g.drawImage(i, 400, 0, frame);
 //         }
 //     }

@@ -1075,7 +1075,7 @@ public final class DrawingPanel implements ImageObserver {
                     if (line.endsWith(":")) {
                         // category label
                         lines.add(line);
-                        line = line.replaceAll("#\\s*", "");
+                        line = line.replaceAll("#/s*", "");
                         filenames.add(line);
                     }
                 } else {
@@ -1681,7 +1681,7 @@ public final class DrawingPanel implements ImageObserver {
         // if saving multiple panels, append number
         // (e.g. output_*.png becomes output_1.png, output_2.png, etc.)
         if (isMultiple()) {
-            filename = filename.replaceAll("\\*", String.valueOf(instanceNumber));
+            filename = filename.replaceAll("/*", String.valueOf(instanceNumber));
         }
 
         int lastDot = filename.lastIndexOf(".");

@@ -12,7 +12,7 @@ public class StartScreen extends MouseAdapter implements KeyListener {
         startScreen.addMouseListener(this);
         g = startScreen.getGraphics();
 
-        Image f = startScreen.loadImage(new File(".\\pics\\StartScreen.jpg"));
+        Image f = startScreen.loadImage(new File("./pics/StartScreen.jpg"));
         g.drawImage(f, 0, 0, startScreen);
 
     }

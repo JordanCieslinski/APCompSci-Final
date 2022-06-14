@@ -6,13 +6,13 @@ public class Winner extends MouseAdapter {
         if(player == 1){
             p1Game.fleet.getFrame().dispose();
             p1Game.shots.getFrame().dispose();
-            DrawingPanel frame = new DrawingPanel(new File(".\\pics\\usfleet.jpg"));
+            DrawingPanel frame = new DrawingPanel(new File("./pics/usfleet.jpg"));
             frame.addMouseListener(this);
         }
         else if(player == 2){
             p2Game.fleet.getFrame().dispose();
             p2Game.shots.getFrame().dispose();
-            DrawingPanel frame = new DrawingPanel(new File(".\\pics\\sovietfleet.jpg"));
+            DrawingPanel frame = new DrawingPanel(new File("./pics/sovietfleet.jpg"));
             frame.addMouseListener(this);
         }
     }

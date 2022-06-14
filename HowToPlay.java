@@ -4,7 +4,7 @@ import java.awt.event.*;
 public class HowToPlay extends MouseAdapter {
     DrawingPanel frame;
     public HowToPlay(){
-        frame = new DrawingPanel(new File(".\\pics\\howtoplay.jpg"));
+        frame = new DrawingPanel(new File("./pics/howtoplay.jpg"));
         frame.addMouseListener(this);
     }
 

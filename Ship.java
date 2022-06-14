@@ -9,23 +9,23 @@ public class Ship {
         type = c;
         switch (type) {
             case 'a':
-                placeLoc = (".\\pics\\airCraft.jpg");
+                placeLoc = ("./pics/airCraft.jpg");
                 leng = 5;
                 break;
             case 'b':
-                placeLoc = (".\\pics\\battleship.jpg");
+                placeLoc = ("./pics/battleship.jpg");
                 leng = 4;
                 break;
             case 'd':
-                placeLoc = (".\\pics\\destroyer.jpg");
+                placeLoc = ("./pics/destroyer.jpg");
                 leng = 3;
                 break;
             case 's':
-                placeLoc = (".\\pics\\sub.jpg");
+                placeLoc = ("./pics/sub.jpg");
                 leng = 3;
                 break;
             case 'p':
-                placeLoc = (".\\pics\\patrol.jpg");
+                placeLoc = ("./pics/patrol.jpg");
                 leng = 2;
                 break;
         }

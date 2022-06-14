@@ -11,28 +11,28 @@ public class Between extends MouseAdapter{
         frame.addMouseListener(this);
         switch(a){
             case "hit":
-                b = ".\\pics\\hitShot.jpg";
+                b = "./pics/hitShot.jpg";
                 break;
             case "miss":
-                b = ".\\pics\\missedShot.jpg";
+                b = "./pics/missedShot.jpg";
                 break;
             case "again":
-                b = ".\\pics\\tryagain.jpg";
+                b = "./pics/tryagain.jpg";
                 break;
             case "a":
-                b = ".\\pics\\shipsSunk\\aircraftSunk.jpg";
+                b = "./pics/shipsSunk/aircraftSunk.jpg";
                 break;
             case "b":
-                b = ".\\pics\\shipsSunk\\battleshipSunk.jpg";
+                b = "./pics/shipsSunk/battleshipSunk.jpg";
                 break;
             case "d":
-                b = ".\\pics\\shipsSunk\\destroyerSunk.jpg";
+                b = "./pics/shipsSunk/destroyerSunk.jpg";
                 break;
             case "s":
-                b = ".\\pics\\shipsSunk\\subsunk.jpg";
+                b = "./pics/shipsSunk/subsunk.jpg";
                 break;
             case "p":
-                b = ".\\pics\\shipsSunk\\patrolSunk.jpg";
+                b = "./pics/shipsSunk/patrolSunk.jpg";
                 break;
         }
         g.drawImage(frame.loadImage(b), 0, 0, frame);
