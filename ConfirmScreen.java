@@ -10,19 +10,22 @@ public class ConfirmScreen extends MouseAdapter implements KeyListener {
     private int gMode;
 
     public ConfirmScreen(int mode) {
-        frame = new DrawingPanel(720, 540, 0);
-        frame.addKeyListener(this);
-        frame.addMouseListener(this);
-        g = frame.getGraphics();
+        if(mode != 2){
+            frame = new DrawingPanel(720, 540, 0);
+            frame.addKeyListener(this);
+            frame.addMouseListener(this);
+            g = frame.getGraphics();
+        }
         gMode = mode;
         if (mode == 0) {
             f = frame.loadImage(new File(".\\pics\\quit.jpg"));
         } else if (mode == 1) {
-            f = frame.loadImage(new File(".\\pics\\1player.jpg"));
+            f = frame.loadImage(new File(".\\pics\\play.jpg"));
         } else if (mode == 2) {
-            f = frame.loadImage(new File(".\\pics\\2player.jpg"));
+            new HowToPlay();
         }
-        g.drawImage(f, 0, 0, frame);
+        if(mode != 2)
+            g.drawImage(f, 0, 0, frame);
 
     }
 
@@ -34,10 +37,7 @@ public class ConfirmScreen extends MouseAdapter implements KeyListener {
             if (gMode == 0) {
                 System.exit(y);
             } else if (gMode == 1) {
-                //TODO REMOVE 1 player game
-            } else if (gMode == 2) {
-                new p1();
-
+                new setP1Pass(); 
             }
 
         } else if (x <= 80 && y >= 500) { // back

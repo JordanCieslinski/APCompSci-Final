@@ -21,12 +21,12 @@ public class gamechoose extends MouseAdapter implements KeyListener {
     public void mouseClicked(MouseEvent e) {
         int x = e.getX();
         int y = e.getY();
-        if (x >= 300 && y >= 220 && x <= 420 && y <= 250) { // 1 Player
-            frame.getFrame().dispose();
-            new ConfirmScreen(1);
-        } else if (x >= 290 && y >= 270 && x <= 430 && y <= 300) { // 2 Player
+        if (x >= 300 && y >= 220 && x <= 420 && y <= 250) { 
             frame.getFrame().dispose();
             new ConfirmScreen(2);
+        } else if (x >= 290 && y >= 270 && x <= 430 && y <= 300) { 
+            frame.getFrame().dispose();
+            new ConfirmScreen(1);
         } else if (x >= 320 && y >= 320 && x <= 400 && y <= 350) { // QUIT
             frame.getFrame().dispose();
             new ConfirmScreen(0);

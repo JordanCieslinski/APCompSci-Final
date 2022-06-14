@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.util.ArrayList;
 
 public class p1Game extends MouseAdapter {
@@ -7,10 +8,10 @@ public class p1Game extends MouseAdapter {
 
     private static Ship[][] shot = new Ship[10][10];
 
-    private DrawingPanel fleet;
+    public static DrawingPanel fleet;
     private Graphics shipDraw;
 
-    private DrawingPanel shots;
+    public static DrawingPanel shots;
     private Graphics shotDraw;
 
     private Ship[] arr = { new Ship('a'), new Ship('b'), new Ship('d'), new Ship('s'), new Ship('p') };
@@ -20,7 +21,15 @@ public class p1Game extends MouseAdapter {
     private boolean shotIsTaken = false;
 
     public static ArrayList<Point> hitList = new ArrayList<>();
-    public static ArrayList<Point> missList = new ArrayList<>();  
+    public static ArrayList<Point> missList = new ArrayList<>();
+    
+    public static int aCount = 0;
+    public static int bCount = 0;
+    public static int dCount = 0;
+    public static int sCount = 0;
+    public static int pCount = 0;
+    public static int shipSunkCount = 0;
+    
 
     public p1Game() {
 
@@ -67,14 +76,19 @@ public class p1Game extends MouseAdapter {
             if (isValidLocation()) {
                 if (p2.board[shotPos[0]][shotPos[1]] != null) {
                     shot[shotPos[0]][shotPos[1]] = new Ship('x');
+                    addToCounter(shotPos[0], shotPos[1]);
+                    new checkCounters(1);
                     shotDraw.drawImage(shots.loadImage(".\\pics\\hit.png"), (int) positionToDraw().getX(),(int) positionToDraw().getY(), shots);
+                    new Between("hit");
                     shotIsTaken = true;
                     shotDraw.drawImage(shots.loadImage(".\\pics\\p2turn.jpg"), 390, 15, shots);
                     hitList.add(positionToDraw());
+                    
 
                 } else {
                     shot[shotPos[0]][shotPos[1]] = new Ship('m');
                     shotDraw.drawImage(shots.loadImage(".\\pics\\miss.png"), (int) positionToDraw().getX(),(int) positionToDraw().getY(), shots);
+                    new Between("miss");
                     shotIsTaken = true;
                     shotDraw.drawImage(shots.loadImage(".\\pics\\p2turn.jpg"), 390, 15, shots);
                     missList.add(positionToDraw());
@@ -84,7 +98,7 @@ public class p1Game extends MouseAdapter {
         } else if (x > 390 && y > 15 && x < 590 && y < 65) {
             shots.getFrame().dispose();
             fleet.getFrame().dispose();
-            new p2Game();
+            new P2Pass();
         }
 
     }
@@ -124,4 +138,27 @@ public class p1Game extends MouseAdapter {
         return (new Point(xPos, yPos));
 
     }
+
+    public static void addToCounter(int x, int y){
+        switch(p2.board[x][y].type){
+            case 'a':
+               p2Game.aCount++;
+                break;
+            case 'b':
+                p2Game.bCount++;
+                break;
+            case 'd':
+                p2Game.dCount++;
+                break;
+            case 's':
+                p2Game.sCount++;
+                break;
+            case 'p':
+                p2Game.pCount++;
+                break;
+        }
+    }
+
+
+
 }

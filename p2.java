@@ -65,7 +65,7 @@ public class p2 extends MouseAdapter {
             if (shipIsPlaced && currentShip == 4  && x > 400 && y >350) {
                 frame.getFrame().dispose();
                 loadShips.getFrame().dispose();
-                new p1Game();
+                new P1Pass();
             }
             else if (shipIsPlaced) {
                 if (x > 400 && y > 350) {
